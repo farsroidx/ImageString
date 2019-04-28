@@ -44,7 +44,7 @@ public class StringImageView extends AppCompatImageView {
         typedArray.recycle();
     }
 
-    public Bitmap getBitmapFromView(){
+    public Bitmap getBitmapImageFromView(){
 
         if(this.getDrawable() != null){
             return ((BitmapDrawable)this.getDrawable()).getBitmap();
@@ -56,16 +56,16 @@ public class StringImageView extends AppCompatImageView {
 
     public String getStringImageFromView() {
 
-        if(getBitmapFromView() == null){
+        if(getBitmapImageFromView() == null){
             return NORMAL_ERROR_TEXT;
         }
         else {
-            return StringImage.encodeToString(getBitmapFromView());
+            return StringImageUtils.encodeToString(getBitmapImageFromView());
         }
     }
 
     public void setImageString(String stringImage){
-        this.setImageBitmap(StringImage.decodeToBitmap(stringImage));
+        this.setImageBitmap(StringImageUtils.decodeToBitmap(stringImage));
     }
 
 }

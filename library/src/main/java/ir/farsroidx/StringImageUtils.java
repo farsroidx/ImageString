@@ -9,7 +9,7 @@ import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 
-public final class StringImage {
+public final class StringImageUtils {
 
     public static String encodeToString(Context context , @DrawableRes int drawableRes){
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources() , drawableRes);

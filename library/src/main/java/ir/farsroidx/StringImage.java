@@ -9,7 +9,7 @@ import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 
-public final class ImageString {
+public final class StringImage {
 
     public static String encodeToString(Context context , @DrawableRes int drawableRes){
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources() , drawableRes);
@@ -30,4 +30,5 @@ public final class ImageString {
         byte[] decodeString = Base64.decode(imageString , Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(decodeString , 0 , decodeString.length);
     }
+
 }

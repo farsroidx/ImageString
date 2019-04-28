@@ -1,12 +1,10 @@
 package ir.farsroidx.imagestring;
 
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
 
-import ir.farsroidx.ImageString;
+import ir.farsroidx.StringImage;
+import ir.farsroidx.StringImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,12 +13,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imageView = findViewById(R.id.imageView);
+        StringImageView imageView1 = findViewById(R.id.stringImageView1);
+        StringImageView imageView2 = findViewById(R.id.stringImageView2);
 
-        String encode = ImageString.encodeToString(this , R.drawable.photo);
-        Log.d("encodeString" , encode);
-        Bitmap decode = ImageString.decodeToBitmap(encode);
-        imageView.setImageBitmap(decode);
+        // Image is already available
+        String encodeString1 = StringImage.encodeToString(imageView1.getBitmapFromView());
 
+        // Image is drawable
+        String encodeString2 = StringImage.encodeToString(this , R.drawable.photo);
+
+        // set Images
+        imageView1.setImageString(encodeString1);
+        imageView2.setImageString(encodeString2);
     }
 }

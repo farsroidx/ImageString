@@ -10,8 +10,6 @@
 
     <ir.farsroidx.StringImageView
         android:id="@+id/stringImageView"
-        android:src="@drawable/photo"
-        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

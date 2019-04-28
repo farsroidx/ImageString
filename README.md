@@ -1,5 +1,6 @@
 # String Image View
-(Convert Image to String or String to Image on Android)
+(Convert Image to String or String to Image on Android.)
+(All features have a AppCompatImageView.)
 
 [![](https://jitpack.io/v/farsroidx/ImageString.svg)](https://jitpack.io/#farsroidx/ImageString)
 
@@ -52,5 +53,3 @@ in java:
         imageView.getBitmapImageFromView();     // get image from imageView as bitmap.
         imageView.getStringImageFromView();     // get image from imageView as string.
         imageView.setImageString(stringImage);  // set string image to imageView.
-
-# All features have a AppCompatImageView.

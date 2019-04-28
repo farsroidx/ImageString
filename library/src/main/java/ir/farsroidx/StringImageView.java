@@ -9,6 +9,9 @@ import android.util.AttributeSet;
 
 public class StringImageView extends AppCompatImageView {
 
+    private static final String BASE64_ERROE_TEXT = "RXJyb3I6IGhhdmUgbm90IHBob3RvIG9uIEltYWdlVmlldy4=";
+    private static final String NORMAL_ERROR_TEXT = "Error: have not photo on ImageView.";
+
     public StringImageView(Context context) {
         super(context);
         init(context , null , 0);
@@ -42,8 +45,14 @@ public class StringImageView extends AppCompatImageView {
         return ((BitmapDrawable)this.getDrawable()).getBitmap();
     }
 
-    public String getStringImageFromView(){
-        return StringImage.encodeToString(getBitmapFromView());
+    public String getStringImageFromView() {
+
+        if(getBitmapFromView() == null){
+            return NORMAL_ERROR_TEXT;
+        }
+        else {
+            return StringImage.encodeToString(getBitmapFromView());
+        }
     }
 
     public void setImageString(String stringImage){

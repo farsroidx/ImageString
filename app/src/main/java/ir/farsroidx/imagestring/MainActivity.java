@@ -13,17 +13,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        StringImageView imageView1 = findViewById(R.id.stringImageView1);
-        StringImageView imageView2 = findViewById(R.id.stringImageView2);
+        StringImageView imageView = findViewById(R.id.stringImageView);
 
-        // Image is already available
-        String encodeString1 = StringImage.encodeToString(imageView1.getBitmapFromView());
+        // Image Is Already Available In ImageView => Input (Bitmap)
+        String encodeString1 = StringImage.encodeToString(imageView.getBitmapFromView());
 
-        // Image is drawable
+        // Image From Drawable => Input (Drawable Id)
         String encodeString2 = StringImage.encodeToString(this , R.drawable.photo);
 
+        // Get String Image From ImageView
+        String encodeString3 = imageView.getStringImageFromView();
+
         // set Images
-        imageView1.setImageString(encodeString1);
-        imageView2.setImageString(encodeString2);
+        imageView.setImageString(encodeString1);
+        imageView.setImageString(encodeString2);
+        imageView.setImageString(encodeString3);
     }
 }

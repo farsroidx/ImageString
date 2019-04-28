@@ -11,13 +11,7 @@ import java.io.ByteArrayOutputStream;
 
 public final class ImageString {
 
-    private Context context;
-
-    public ImageString(Context context) {
-        this.context = context;
-    }
-
-    public String encodeToString(@DrawableRes int drawableRes){
+    public static String encodeToString(Context context , @DrawableRes int drawableRes){
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources() , drawableRes);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG , 100 , byteArrayOutputStream);
@@ -25,14 +19,14 @@ public final class ImageString {
         return Base64.encodeToString(bytes , Base64.DEFAULT);
     }
 
-    public String encodeToString(@NonNull Bitmap bitmap){
+    public static String encodeToString(@NonNull Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG , 100 , byteArrayOutputStream);
         byte[] bytes = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(bytes , Base64.DEFAULT);
     }
 
-    public Bitmap decodeToBitmap(String imageString){
+    public static Bitmap decodeToBitmap(String imageString){
         byte[] decodeString = Base64.decode(imageString , Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(decodeString , 0 , decodeString.length);
     }
